@@ -165,7 +165,7 @@ You can bind the toggle command to a keyboard shortcut. Open `Keyboard Shortcuts
 
 ## Contributing
 
-Issues and pull requests are welcome on [GitHub](#https://github.com/Saiful-Islam0/Faah.git).
+Issues and pull requests are welcome on [GitHub](https://github.com/Saiful-Islam0/Faah.git).
 
 If FaahCode saves you from a frustrating debugging session, consider leaving a ⭐ review on the Marketplace — it genuinely helps others find it.
 
