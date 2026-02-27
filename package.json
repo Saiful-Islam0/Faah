@@ -1,0 +1,103 @@
+{
+  "name": "faahcode",
+  "displayName": "FaahCode — Sound Alerts",
+  "description": "Plays an alert sound when your code has errors, tests fail, or commands crash.",
+  "version": "1.0.0",
+  "publisher": "your-publisher-id",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "sound",
+    "alert",
+    "error",
+    "test",
+    "notification"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "faahcode.toggle",
+        "title": "FaahCode: Toggle Sound Alerts"
+      },
+      {
+        "command": "faahcode.testSound",
+        "title": "FaahCode: Play Test Sound"
+      },
+      {
+        "command": "faahcode.openSettings",
+        "title": "FaahCode: Open Settings"
+      }
+    ],
+    "configuration": {
+      "title": "FaahCode",
+      "properties": {
+        "faahcode.enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "faahcode.volume": {
+          "type": "number",
+          "default": 80,
+          "minimum": 0,
+          "maximum": 100
+        },
+        "faahcode.customSoundPath": {
+          "type": "string",
+          "default": ""
+        },
+        "faahcode.cooldownMs": {
+          "type": "number",
+          "default": 2000,
+          "minimum": 500
+        },
+        "faahcode.alerts.diagnosticErrors": {
+          "type": "boolean",
+          "default": true
+        },
+        "faahcode.alerts.testFailures": {
+          "type": "boolean",
+          "default": true
+        },
+        "faahcode.alerts.terminalExitCode": {
+          "type": "boolean",
+          "default": true
+        },
+        "faahcode.quietHours.enabled": {
+          "type": "boolean",
+          "default": false
+        },
+        "faahcode.quietHours.start": {
+          "type": "string",
+          "default": "22:00"
+        },
+        "faahcode.quietHours.end": {
+          "type": "string",
+          "default": "08:00"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "node esbuild.js --production && vsce package",
+    "test": "node ./test/runTests.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.3.0",
+    "esbuild": "^0.20.0",
+    "mocha": "^10.0.0",
+    "typescript": "^5.3.0"
+  }
+}
